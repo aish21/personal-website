@@ -26,6 +26,10 @@
         <meta property="article:publisher" content="https://github.com/aish21" />
 
         <!-- TODO: Add Google Analytics -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+            .mySlides {display:none;}
+        </style>
     </head>
     <body>
 
@@ -222,6 +226,8 @@
                     <div class="col-md-9">
                         <div class="content section-padding valign" 
                              style="margin-left: 10%; margin-top: 50px;">
+
+                             <!-- Caption -->
                              <div class="caption">
                                 <h2>Hello, I am <span class="teal">Aishwarya</span> 
                                     <audio controls>
@@ -232,10 +238,58 @@
                                 <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#004d40"></span></h5>
                                 <h5>Self-driven, quick starter, passionate programmer with a curious mind who enjoys solving a complex and challenging real-world problems.</h5>
                              </div>
+                             
+                             <!-- Image Slides -->
+                             <div class="w3-content w3-section" style="max-width:500px">
+                                <img class="mySlides" src="/assets/img/c1.jpeg" style="width:100%">
+                                <img class="mySlides" src="/assets/img/c2.jpeg" style="width:100%">
+                                <img class="mySlides" src="/assets/img/c3.jpeg" style="width:100%">
+                            </div>
+
+                             <!-- Social Links -->
+                             <div class="social">
+                                <a  href="https://www.linkedin.com/in/aishwarya-singh-547092174/" 
+                                    target="_blank">
+                                    <button class="icon-btn linkedin">
+                                        <i class="fa fa-linkedin"></i>
+                                    </button>
+                                </a>
+                                <a  href="https://github.com/aish21" 
+                                    target="_blank">
+                                    <button class="icon-btn github">
+                                        <i class="fa fa-github"></i>
+                                    </button>
+                                </a>
+                            </div>
+
+                            <!-- Navigation Buttons -->
+                            <div class='buttons'>
+                                <a href="#about" class="readme">Know more about me</a>
+                                <a href="#contact" class="contactme">Contact Me</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+
+        <!-- Script to auto change images -->
+        <script>
+            var myIndex = 0;
+            carousel();
+            
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+              }
+              myIndex++;
+              if (myIndex > x.length) {myIndex = 1}    
+              x[myIndex-1].style.display = "block";  
+              // Change image every 5 seconds
+              setTimeout(carousel, 5000); 
+            }
+        </script>
     </body>
 </html>
