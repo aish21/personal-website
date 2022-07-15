@@ -26,7 +26,7 @@
         <meta property="article:publisher" content="https://github.com/aish21" />
 
         <!-- TODO: Add Google Analytics -->
-        
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
     <body>
 
@@ -133,11 +133,11 @@
                 <i class="mdi-navigation-menu"></i>
             </a>
             <div class="name-title">
-                <a  id="name" 
-                    aria-label="Navigate to the beginning of the page" 
-                    href="#" 
-                    class="teal-text">Aishwarya Singh</a>
-                    <span class="black-text">Aspiring Software Engineer</span>
+              <a id="name" 
+                 aria-label="Navigate to the beginning of the page" 
+                 href="#" 
+                 class="teal-text">Aishwarya Singh</a>
+                 <span class="black-text">Aspiring Software Engineer</span>
             </div>
         </nav>
 
@@ -228,8 +228,8 @@
                         <div class="content section-padding valign" 
                              style="margin-left: 10%; margin-top: 50px;">
 
-                            <!-- Caption -->
-                            <div class="caption">
+                             <!-- Caption -->
+                             <div class="caption">
                                 <h2>Hello, I am <span class="teal">Aishwarya</span>
                                     <button class="audioBt" onclick="playAudio()" type="button">
                                         <img id = "audImg" src="/assets/img/name-audio.png">
@@ -237,27 +237,27 @@
                                 </h2>
                                 <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#004d40"></span></h5>
                                 <h5>Self-driven, quick starter, passionate programmer with a curious mind who enjoys solving a complex and challenging real-world problems.</h5>
-                            </div>
-
-                            <br>
+                             </div>
                              
-                            <!-- Image Slides -->
-                            <div class="row">
-                                <div class="column">
-                                    <img src="/assets/img/c1.jpeg" alt="Teaching Session" style="width:100%">
-                                </div>
-                                <div class="column">
-                                    <img src="/assets/img/c2.jpeg" alt="Event @ Google Developer Space" style="width:100%">
-                                </div>
-                                <div class="column">
-                                    <img src="/assets/img/c3.jpeg" alt="iNTUition v8.0: Executive Committee" style="width:100%">
-                                </div>
+                             <!-- Image Slides -->
+                             <div class="w3-content w3-display-container" style="max-width:500px">
+                                <img class="mySlides" src="/assets/img/c1.jpeg" style="width:100%">
+                                <img class="mySlides" src="/assets/img/c2.jpeg" style="width:100%">
+                                <img class="mySlides" src="/assets/img/c3.jpeg" style="width:100%">
+
+                                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" 
+                                     style="width:100%">
+                                    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                                    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+                                </div> 
+                                <br>
                             </div>
 
-                            <br>
-
-                            <!-- Social Links -->
-                            <div class="social">
+                             <!-- Social Links -->
+                             <div class="social">
                                 <a  href="https://www.linkedin.com/in/aishwarya-singh-547092174/" 
                                     target="_blank">
                                     <button class="icon-btn linkedin">
@@ -313,40 +313,37 @@
 
         <!-- Script to auto change images -->
         <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
             var aud = document.getElementById("myName"); 
 
             function playAudio() { 
                 aud.play(); 
+            } 
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
             }
-        </script>
-        
-        <!-- typed.js -->
-        <script src="assets/vendor/typed.js/typed.min.js"></script>
-        <script type="text/javascript">
-            var typed = new Typed('.typing',{
-                strings: ["Pythonist", "Developer", "Fast Learner"],
-                loop: true,
-                typeSpeed: 80,
-                backSpeed: 40
-            });
-        </script>
 
-        <!-- jQuery-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            function currentDiv(n) {
+                showDivs(slideIndex = n);
+            }
 
-        <!-- Materialize - Compiled and minified JavaScript-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
-        <script>
-            // Materialize - Initializers
-            $(document).ready(function () {
-                $(".scrollspy").scrollSpy()
-                // Initialize collapse button
-                $(".button-collapse").sideNav({
-                    menuWidth: 190, // Default is 240
-                    edge: "left", // Choose the horizontal origin
-                    closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-                })
-            })
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                if (n > x.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = x.length}
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";  
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" w3-white", "");
+                }
+                x[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " w3-white";
+            }
         </script>
     </body>
 </html>

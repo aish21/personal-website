@@ -28,10 +28,23 @@
     right: 0;
   }
 
-  .mySlides {
-    display:none;
+  * {
+    box-sizing: border-box;
   }
   
+  .column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clearfix (clear floats) */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
   .w3-left, .w3-right, .w3-badge {
     cursor:pointer
   }
