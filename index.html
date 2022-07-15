@@ -27,11 +27,12 @@
 
         <!-- TODO: Add Google Analytics -->
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <style>
-            .mySlides {display:none;}
-        </style>
     </head>
     <body>
+
+        <audio id="myName">
+            <source src="/assets/audio/name.mp3" type="audio/mpeg">
+        </audio>
 
         <!-- Navigation Menu -->
         <nav class="hide-on-small-only">
@@ -229,21 +230,29 @@
 
                              <!-- Caption -->
                              <div class="caption">
-                                <h2>Hello, I am <span class="teal">Aishwarya</span> 
-                                    <audio controls>
-                                        <source src="/assets/audio/name.mp3" type="audio/mpeg">
-                                            Your browser does not support the audio element.
-                                    </audio>
+                                <h2>Hello, I am <span class="teal">Aishwarya</span>
+                                    <button class="audioBt" onclick="playAudio()" type="button">
+                                        <img id = "audImg" src="/assets/img/name-audio.png">
+                                    </button>
                                 </h2>
                                 <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#004d40"></span></h5>
                                 <h5>Self-driven, quick starter, passionate programmer with a curious mind who enjoys solving a complex and challenging real-world problems.</h5>
                              </div>
                              
                              <!-- Image Slides -->
-                             <div class="w3-content w3-section" style="max-width:500px">
+                             <div class="w3-content w3-display-container" style="max-width:500px">
                                 <img class="mySlides" src="/assets/img/c1.jpeg" style="width:100%">
                                 <img class="mySlides" src="/assets/img/c2.jpeg" style="width:100%">
                                 <img class="mySlides" src="/assets/img/c3.jpeg" style="width:100%">
+
+                                <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" 
+                                     style="width:100%">
+                                    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+                                    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+                                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+                                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+                                    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+                                </div>
                             </div>
 
                              <!-- Social Links -->
@@ -275,20 +284,36 @@
 
         <!-- Script to auto change images -->
         <script>
-            var myIndex = 0;
-            carousel();
-            
-            function carousel() {
-              var i;
-              var x = document.getElementsByClassName("mySlides");
-              for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";  
-              }
-              myIndex++;
-              if (myIndex > x.length) {myIndex = 1}    
-              x[myIndex-1].style.display = "block";  
-              // Change image every 5 seconds
-              setTimeout(carousel, 5000); 
+            var slideIndex = 1;
+            showDivs(slideIndex);
+            var aud = document.getElementById("myName"); 
+
+            function playAudio() { 
+                aud.play(); 
+            } 
+
+            function plusDivs(n) {
+                showDivs(slideIndex += n);
+            }
+
+            function currentDiv(n) {
+                showDivs(slideIndex = n);
+            }
+
+            function showDivs(n) {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("demo");
+                if (n > x.length) {slideIndex = 1}
+                if (n < 1) {slideIndex = x.length}
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";  
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" w3-white", "");
+                }
+                x[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " w3-white";
             }
         </script>
     </body>

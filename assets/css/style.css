@@ -27,6 +27,29 @@
     bottom: 0; 
     right: 0;
   }
+
+  .mySlides {
+    display:none;
+  }
+  
+  .w3-left, .w3-right, .w3-badge {
+    cursor:pointer
+  }
+  
+  .w3-badge {
+    height:13px;
+    width:13px;
+    padding:0
+  } 
+
+  .audioBt{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+  }
   
   @import url(https://fonts.googleapis.com/css?family=Poiret+One);
   .social {
@@ -655,7 +678,7 @@
   
   @media (max-width: 600px) {
     h2 {
-      font-size: 22px;
+      font-size: 25px;
       line-height: 200%;
       margin: 30px 0 0;
     }
