@@ -1,2 +1,2 @@
 # Portfolio Website
-Viewed Live @ https://aishwarya-singh.herokuapp.com
+Viewed Live @ [here](https://aishwarya-singh.netlify.app)
